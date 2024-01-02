@@ -1,0 +1,56 @@
+{
+	"name": "ds_input_mysql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_mysql",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"server_name": {
+					"value": "@dataset().server_name",
+					"type": "Expression"
+				},
+				"port": {
+					"value": "@dataset().port",
+					"type": "Expression"
+				},
+				"database_name": {
+					"value": "@dataset().database_name",
+					"type": "Expression"
+				},
+				"user_name": {
+					"value": "@dataset().user_name",
+					"type": "Expression"
+				},
+				"secret_name": {
+					"value": "@dataset().secret_name",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"server_name": {
+				"type": "string",
+				"defaultValue": "localhost"
+			},
+			"port": {
+				"type": "string",
+				"defaultValue": "3306"
+			},
+			"database_name": {
+				"type": "string",
+				"defaultValue": "fmcg"
+			},
+			"user_name": {
+				"type": "string",
+				"defaultValue": "root"
+			},
+			"secret_name": {
+				"type": "string",
+				"defaultValue": "mysql-password"
+			}
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": []
+	}
+}

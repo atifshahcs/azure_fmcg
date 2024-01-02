@@ -1,0 +1,54 @@
+{
+	"name": "ds_input_sftp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sftp",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"host_name": {
+				"type": "string",
+				"defaultValue": "192.168.56.1"
+			},
+			"port": {
+				"type": "string",
+				"defaultValue": "22"
+			},
+			"user_name": {
+				"type": "string",
+				"defaultValue": "atif"
+			},
+			"secret_name": {
+				"type": "string",
+				"defaultValue": "sftp-password"
+			},
+			"source_file_path": {
+				"type": "string",
+				"defaultValue": "sftp_files"
+			},
+			"file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "SftpLocation",
+				"fileName": {
+					"value": "@dataset().file_name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().source_file_path",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
